@@ -86,3 +86,70 @@ Termos utilizados para vincular um contexto com outro
 - Big Ball of Mud
 
 https://github.com/ddd-crew/context-mapping
+
+## Modelagem Tática e Patterns
+
+### Entidades
+
+"Uma entidade é algo único que é capaz de ser alterado de forma contínua durante um longo período de tempo."
+
+--- Vernon, Vaughn. Implementing DDD
+
+Ex: temos 3 carros do mesmo modelo, eu posso falterar de forma independente. Isso mostra que cada um tem sua identidade única.
+
+#### Configurando Projeto TypeScript
+
+Instalando
+
+```
+npm i typescript --dev-save
+npx tsc --init
+npm i tslint --save-dev
+npx tslint --init
+npm i uuid @types/uuid
+```
+
+### Value Objects
+
+"Quando você se preocupa apenas com os atributos de um elemento de um model, classique isso como um Value Object"
+
+"Trate o Value Object como imutável"
+
+--- Evans, Eric. DDD
+
+#### Exemplos
+
+- Address (Street, City, State, Zip Code)
+No caso do address, você não troca de número, vc troca de endereço!
+
+- CPF
+Não é apenas um número, é um identificador do usuário, possui lógica para definir os valores!
+
+Os Value Objects não tem id!!!
+
+### Agregados
+
+"Um agregado é um conjunto de objetos associados que tratamos como uma unidade para propósito de mudança de dados"
+
+--- Evans, Eric. DDD
+
+### Teste Automatizados
+
+```
+npm i -D jest @types/jest ts-node --save-dev
+npm i -D @swc/jest @swc/cli @swc/core
+npx jest --init
+```
+
+### Domain Services
+
+Um serviço de domínio é uma operação sem estado que cumpre uma tarefa específica do domínio.
+
+- Uma entidade pode realizar uma ação que vai afetar todas as entidades?
+- Como realizar uma operação em lote?
+- Como calcular algo cuja as informações constam em mais de uma entidade?
+
+#### Cuidados
+
+- Quando houver muitos Domain Services em seu projeto, TALVEZ, isso pode indicar que seus agregados estão anêmicos.
+- Domain Services são Stateless
