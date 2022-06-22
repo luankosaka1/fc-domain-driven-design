@@ -153,3 +153,14 @@ Um serviço de domínio é uma operação sem estado que cumpre uma tarefa espec
 
 - Quando houver muitos Domain Services em seu projeto, TALVEZ, isso pode indicar que seus agregados estão anêmicos.
 - Domain Services são Stateless
+
+### Repositories
+
+Um local de armazenamento, geralmente considerado um local de segurança ou preservação dos itens nele armazenados.
+
+### Preparando o Sequelize
+
+```
+npm install sequelize reflect-metadata sequelize-typescript
+npm install sqlite3
+```
